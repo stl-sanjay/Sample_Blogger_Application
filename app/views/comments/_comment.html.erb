@@ -1,0 +1,14 @@
+<p id = "comment_<%= comment.id %>">
+  <tr>
+    <td>
+      <%= comment.body %>
+    </td>
+    <td>
+      <% if signed_in? %>
+          <%= link_to 'Delete Comment',[comment.blog, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' }, remote: true %>
+      <% end %>
+    </td>
+  </tr>
+</p>

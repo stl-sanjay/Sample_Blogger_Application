@@ -1,0 +1,8 @@
+<h2>Sign up. All we need is your email address.</h2>
+  <%= form_for(resource, :as => resource_name, :url => user_registration_path(resource)) do |form| %>
+    <%= devise_error_messages! %>
+      <%= form.email_field :email, :input_html => {:autofocus => true} %>
+      <%= form.submit :submit, :label => "Sign up" %>
+  <% end %>
+
+  <%#= render :partial => "devise/shared/mailchimp/form", :locals => {:form => f} %>

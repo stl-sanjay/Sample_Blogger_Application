@@ -1,0 +1,28 @@
+<h1>Listing Blogs</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.user.email if blog.user %></td>
+        <td><%= link_to blog.title,  blog_path(blog) %></td>
+        <td><%= blog.description %></td>
+
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+          <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>
+
+<%= link_to 'New Blog', new_blog_path %>

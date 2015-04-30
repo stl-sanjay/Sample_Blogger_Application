@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title>SampleAuthenticationApp</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <div style="width: 100%; position: absolute; display: inline-flex;">
+      <div style="width: 60%;">
+        <h1> Welcom to Solute Labs</h1>
+      </div>
+
+      <div style="width: 40%; text-align: right; top: 30px; position: relative; right: 50px;">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> |
+          <%= link_to "Profile", edit_user_registration_path %> |
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path, :method => :get %> | 
+          <%= link_to "Sign up", new_user_registration_path, :method => :get %>
+          |
+        <% end %>
+        <%= link_to "All Blogs", blogs_path %>
+      </div>  
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
