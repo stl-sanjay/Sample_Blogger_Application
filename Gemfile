@@ -40,6 +40,7 @@ gem 'gibbon'
 
 gem 'resque'
 gem 'paperclip'
+gem 'activeadmin', github: 'activeadmin'
 
  group :development do
   gem 'quiet_assets' # disables sprockets asset loading messages to be displayed in log or stdout
